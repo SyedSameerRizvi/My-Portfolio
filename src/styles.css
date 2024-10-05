@@ -1,0 +1,347 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+section {
+    background-color: white;
+}
+
+.hero {
+    background-color: black;
+    height: 100vh;
+    color: white;
+    font-size: 40px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 80px;
+}
+
+.contact-info {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.contact-info p {
+    margin-bottom: 10px; /* Add space between paragraphs */
+}
+
+.contact-info a {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.social-icons {
+    margin-top: 20px; /* Add space above the icons */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between icons */
+}
+
+.social-icons a {
+    display: inline-block;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    width: 500px;
+    justify-content: space-around;
+    font-size: 30px;
+}
+
+li {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 90px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.subtext {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.hero-area {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    margin-left: 80px;
+    margin-bottom: 200px;
+    animation: slide-in 1s ease-out forwards;
+}
+
+.button {
+    width: 200px;
+    height: 55px;
+    border-radius: 30px;
+    background-color: rgb(49, 127, 153);
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    padding-top: 5px;
+    margin-top: 20px;
+    animation: slide-in 1.5s ease-out forwards;
+}
+
+.button:hover {
+    background-color: lightblue;
+}
+
+.button:active {
+    background-color: #A9A9A9;
+    color: #808080;
+}
+
+.socials {
+    padding-bottom: 200px;
+}
+
+
+.logo {
+    height: 80px;
+    margin: 30px;
+}
+.social {
+    margin: 20px;
+}
+
+.sub-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 80px;
+    background-color: whitesmoke;
+}
+
+.sub-section-alternative {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 80px;
+    background-color: whitesmoke;
+}
+
+.headshot {
+    width: 300px;
+    border-radius: 150px;
+    margin-left: 80px;
+}
+
+.headshot-container {
+    display: flex;
+    align-items: center;
+}
+
+.project-slider {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap to each card */
+    gap: 20px; /* Space between project cards */
+}
+
+.project-card {
+    flex: 0 0 500px; /* Increase the width of the project cards */
+    height: 600px; /* Increase the height of the project cards */
+    box-shadow: 5px 5px 20px rgb(197, 195, 195);
+    background-color: whitesmoke;
+    transition: transform 0.3s, box-shadow 0.3s;
+    scroll-snap-align: start; /* Snap alignment */
+    padding: 20px; /* Add some padding inside the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced out */
+}
+
+.project-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.project-card:hover {
+    transform: translateY(-10px); /* Move the card up slightly */
+    box-shadow: 10px 10px 30px rgb(150, 150, 150); /* Increase shadow for a lifted effect */
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .project-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.project-image {
+    margin-top: 25px;
+    width: 100%; /* Ensure the image fits the card width */
+    max-width: 100%; 
+    height: auto;
+    border-radius: 20px;
+}
+
+hr {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.project-link {
+    /* text-decoration: none;
+    color: black; */
+    display: inline-block; /* Make the link behave like a button */
+    padding: 10px 20px; /* Add padding for button-like appearance */
+    background-color: black; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    margin-top: 10px; /* Add some space above the button */
+}
+
+.project-link:hover {
+    background-color: #d9534f;
+    transform: translateY(-3px);
+}
+
+.project-card .project-link:hover {
+    background-color: lightblue; /* Darker background on hover */
+    transform: translateY(-3px); /* Slightly lift the button on hover */
+}
+
+.project-slider {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap to each card */
+    gap: 20px; /* Space between project cards */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.project-slider::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.hamburger {
+    display: none;
+}
+
+.hamburger:focus{
+    outline: 0;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .hamburger {
+        display: block;
+        border: 0;
+        background-color: transparent;
+        color: white;
+        font-size: 30px;
+        margin: 20px;
+        align-self: flex-end;
+    }
+
+    ul {
+        display: none;
+        background-color: #2b2c38;
+        margin: 0ppx;
+    }
+
+    ul.show {
+        display: block;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: #2b2c38;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px; /* Adjust size as needed */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    font-size: 36px; /* Adjust size for visibility */
+    font-weight: bold; /* Make the arrow bolder */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.arrow-button:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.download-cv-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.download-cv-button:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
