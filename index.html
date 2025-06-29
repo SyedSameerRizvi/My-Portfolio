@@ -1297,29 +1297,153 @@
         });
 
 
-        function handleContactForm() {
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent actual form submission
-
-        // Gather form values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        // For now, just log to console (replace with fetch/ajax for backend later)
-        console.log('Form submitted with values:');
-        console.log({ name, email, subject, message });
-
-        // Display success message (optional)
-        successMessage.style.display = 'block';
-
-        // Reset form
-        form.reset();
-    });
+       function initContactForm() {
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            // Clear messages
+            function clearMessages() {
+                successMessage.classList.remove('show');
+                errorMessage.classList.remove('show');
+            }
+            
+            // Show success message
+            function showSuccess() {
+                clearMessages();
+                successMessage.classList.add('show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }
+            
+            // Show error message
+            function showError() {
+                clearMessages();
+                errorMessage.classList.add('show');
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 5000);
+            }
+            
+            // Validate individual field
+            function validateField(field) {
+                const formGroup = field.parentElement;
+                const errorText = formGroup.querySelector('.error-text');
+                let isValid = true;
+                let message = '';
+                
+                // Remove existing error state
+                formGroup.classList.remove('error');
+                
+                // Check if field is empty
+                if (!field.value.trim()) {
+                    isValid = false;
+                    message = `${field.name.charAt(0).toUpperCase() + field.name.slice(1)} is required`;
+                } else {
+                    // Specific validations
+                    switch (field.type) {
+                        case 'email':
+                            if (!emailRegex.test(field.value)) {
+                                isValid = false;
+                                message = 'Please enter a valid email address';
+                            }
+                            break;
+                        case 'text':
+                            if (field.name === 'name' && field.value.trim().length < 2) {
+                                isValid = false;
+                                message = 'Name must be at least 2 characters long';
+                            }
+                            if (field.name === 'subject' && field.value.trim().length < 3) {
+                                isValid = false;
+                                message = 'Subject must be at least 3 characters long';
+                            }
+                            break;
+                        default:
+                            if (field.tagName.toLowerCase() === 'textarea' && field.value.trim().length < 10) {
+                                isValid = false;
+                                message = 'Message must be at least 10 characters long';
+                            }
+                    }
+                }
+                
+                if (!isValid) {
+                    formGroup.classList.add('error');
+                    errorText.textContent = message;
+                }
+                
+                return isValid;
+            }
+            
+            // Validate entire form
+            function validateForm() {
+                const fields = form.querySelectorAll('input, textarea');
+                let isFormValid = true;
+                
+                fields.forEach(field => {
+                    if (!validateField(field)) {
+                        isFormValid = false;
+                    }
+                });
+                
+                return isFormValid;
+            }
+            
+            // Real-time validation
+            form.addEventListener('input', function(e) {
+                if (e.target.matches('input, textarea')) {
+                    validateField(e.target);
+                }
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) {
+                    showError();
+                    return;
+                }
+                
+                // Show loading state
+                const submitBtn = form.querySelector('.btn');
+                const btnText = submitBtn.querySelector('.btn-text');
+                const originalText = btnText.textContent;
+                
+                submitBtn.disabled = true;
+                btnText.innerHTML = '<span class="loading"></span>Sending...';
+                
+                // Simulate form submission (replace with actual submission logic)
+                setTimeout(() => {
+                    // Get form data
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Here you would typically send the data to your server
+                    console.log('Form submitted with data:', data);
+                    
+                    // Show success and reset form
+                    showSuccess();
+                    form.reset();
+                    
+                    // Reset button
+                    submitBtn.disabled = false;
+                    btnText.textContent = originalText;
+                    
+                    // Clear any remaining error states
+                    form.querySelectorAll('.form-group').forEach(group => {
+                        group.classList.remove('error');
+                    });
+                    
+                }, 2000); // Simulate network delay
+            });
+        }
+        
+        // Initialize the form when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initContactForm);
 }
 
 // Call this function when page loads
