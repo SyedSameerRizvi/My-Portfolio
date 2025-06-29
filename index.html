@@ -1172,7 +1172,7 @@
                     </div>
                 </div>
                 <div class="contact-form fade-in">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -1295,6 +1295,37 @@
                 }
             });
         });
+
+
+        function handleContactForm() {
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent actual form submission
+
+        // Gather form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // For now, just log to console (replace with fetch/ajax for backend later)
+        console.log('Form submitted with values:');
+        console.log({ name, email, subject, message });
+
+        // Display success message (optional)
+        successMessage.style.display = 'block';
+
+        // Reset form
+        form.reset();
+    });
+}
+
+// Call this function when page loads
+document.addEventListener('DOMContentLoaded', handleContactForm);
+
+        
     </script>
 
     <style>
