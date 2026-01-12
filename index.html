@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="src/images/pfp.ico">
     <title>Syed Sameer Rizvi - Data Scientist & AI Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -15,16 +18,17 @@
         }
 
         :root {
-            --primary-bg: #0a0a0a;
-            --secondary-bg: #111111;
-            --card-bg: #1a1a1a;
-            --accent-color: #00d4ff;
-            --accent-gradient: linear-gradient(135deg, #00d4ff, #7c3aed);
-            --text-primary: #ffffff;
+            --primary-bg: #050505;
+            --secondary-bg: #0a0a0a;
+            --card-bg: #111111;
+            --accent-color: #00ff9d;
+            --accent-gradient: linear-gradient(135deg, #00ff9d, #00f3ff);
+            --text-primary: #e0e0e0;
             --text-secondary: #a0a0a0;
             --text-muted: #666666;
             --border-color: #333333;
-            --glow: 0 0 20px rgba(0, 212, 255, 0.3);
+            --glow: 0 0 20px rgba(0, 255, 157, 0.2);
+            --tech-border: 1px solid rgba(0, 255, 157, 0.3);
         }
 
         body {
@@ -33,6 +37,20 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image:
+                linear-gradient(rgba(0, 255, 157, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.5px;
         }
 
         /* Scrollbar Styling */
@@ -137,8 +155,13 @@
         }
 
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(10px, 10px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(10px, 10px);
+            }
         }
 
         .hero-content {
@@ -153,16 +176,138 @@
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 800;
             margin-bottom: 1rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleGlow 3s ease-in-out infinite alternate;
+            color: var(--text-primary);
+            text-shadow: 2px 2px 0px var(--accent-color);
+            position: relative;
         }
 
-        @keyframes titleGlow {
-            0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
-            100% { filter: drop-shadow(0 0 40px rgba(124, 58, 237, 0.5)); }
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(30px, 9999px, 10px, 0);
+            }
+
+            5% {
+                clip: rect(80px, 9999px, 90px, 0);
+            }
+
+            10% {
+                clip: rect(40px, 9999px, 70px, 0);
+            }
+
+            15% {
+                clip: rect(10px, 9999px, 30px, 0);
+            }
+
+            20% {
+                clip: rect(60px, 9999px, 50px, 0);
+            }
+
+            25% {
+                clip: rect(20px, 9999px, 80px, 0);
+            }
+
+            30% {
+                clip: rect(50px, 9999px, 10px, 0);
+            }
+
+            35% {
+                clip: rect(90px, 9999px, 20px, 0);
+            }
+
+            40% {
+                clip: rect(10px, 9999px, 60px, 0);
+            }
+
+            45% {
+                clip: rect(70px, 9999px, 30px, 0);
+            }
+
+            50% {
+                clip: rect(30px, 9999px, 90px, 0);
+            }
+
+            100% {
+                clip: rect(0, 0, 0, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(60px, 9999px, 20px, 0);
+            }
+
+            5% {
+                clip: rect(10px, 9999px, 80px, 0);
+            }
+
+            10% {
+                clip: rect(90px, 9999px, 30px, 0);
+            }
+
+            15% {
+                clip: rect(30px, 9999px, 60px, 0);
+            }
+
+            20% {
+                clip: rect(70px, 9999px, 10px, 0);
+            }
+
+            25% {
+                clip: rect(20px, 9999px, 50px, 0);
+            }
+
+            30% {
+                clip: rect(80px, 9999px, 20px, 0);
+            }
+
+            35% {
+                clip: rect(40px, 9999px, 90px, 0);
+            }
+
+            40% {
+                clip: rect(10px, 9999px, 30px, 0);
+            }
+
+            45% {
+                clip: rect(50px, 9999px, 70px, 0);
+            }
+
+            50% {
+                clip: rect(30px, 9999px, 40px, 0);
+            }
+
+            100% {
+                clip: rect(0, 0, 0, 0);
+            }
         }
 
         .hero-subtitle {
@@ -460,13 +605,27 @@
         }
 
         .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+            background: rgba(17, 17, 17, 0.8);
+            border-radius: 4px;
             padding: 2rem;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--accent-color);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.1);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(225deg, var(--accent-color) 2px, transparent 2px);
         }
 
         .project-card::before {
@@ -535,6 +694,9 @@
         .project-links {
             display: flex;
             gap: 1rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
         }
 
         .project-link {
@@ -589,7 +751,9 @@
         }
 
         @keyframes rotate {
-            100% { transform: rotate(360deg); }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .certificate-card:hover {
@@ -803,12 +967,15 @@
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.3;
             }
+
             90% {
                 opacity: 0.3;
             }
+
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
@@ -816,6 +983,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -826,7 +994,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -845,15 +1012,14 @@
             <div class="particle" style="left: 90%; animation-delay: -1s;"></div>
         </div>
         <div class="hero-content">
-            <h1 class="hero-title">Syed Sameer Rizvi</h1>
+            <h1 class="hero-title glitch" data-text="Syed Sameer Rizvi">Syed Sameer Rizvi</h1>
             <p class="hero-subtitle">Data Scientist</p>
             <p class="hero-description">
-                Transforming data into intelligent solutions with cutting-edge AI and machine learning. 
+                Transforming data into intelligent solutions with cutting-edge AI and machine learning.
                 Specializing in autonomous agents, predictive analytics, and conversational AI systems.
             </p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Let's Connect</a>
             </div>
             <div class="social-links">
                 <a href="https://github.com/SyedSameerRizvi" class="social-link" target="_blank">
@@ -877,22 +1043,26 @@
                 <div class="about-text fade-in">
                     <h3>Passionate Data Scientist & AI Innovator</h3>
                     <p>
-                        I'm an undergraduate at <strong>DHA Suffa University</strong>, majoring in <strong>Data Science</strong> 
-                        with a specialized focus on AI agents and autonomous systems. My passion lies in creating intelligent 
+                        I'm an undergraduate at <strong>DHA Suffa University</strong>, majoring in <strong>Data
+                            Science</strong>
+                        with a specialized focus on AI agents and autonomous systems. My passion lies in creating
+                        intelligent
                         solutions that bridge the gap between complex data and actionable insights.
                     </p>
                     <p>
-                        With hands-on experience in building conversational AI, predictive models, and data-driven applications, 
-                        I'm constantly exploring the frontiers of artificial intelligence. I'm actively seeking internship 
-                        opportunities and part-time roles where I can contribute to innovative projects while growing my expertise.
+                        With hands-on experience in building conversational AI, predictive models, and data-driven
+                        applications,
+                        I'm constantly exploring the frontiers of artificial intelligence. I'm actively seeking
+                        internship
+                        opportunities and part-time roles where I can contribute to innovative projects while growing my
+                        expertise.
                     </p>
                 </div>
                 <div class="about-image fade-in">
-                    <img src="src/images/SSR1.jpeg" 
-                         alt="Syed Sameer Rizvi" class="headshot">
+                    <img src="src/images/SSR1.jpeg" alt="Syed Sameer Rizvi" class="headshot">
                 </div>
             </div>
-            
+
             <!-- CV Download Section -->
             <div class="cv-section fade-in">
                 <div class="cv-icon">
@@ -900,7 +1070,8 @@
                 </div>
                 <h3>Download My CV</h3>
                 <p>
-                    Get a comprehensive overview of my experience, skills, and achievements in data science and AI development. 
+                    Get a comprehensive overview of my experience, skills, and achievements in data science and AI
+                    development.
                     Updated with latest projects and certifications.
                 </p>
                 <a href="src/Syed-Sameer-Resume.pdf" class="cv-download-btn" onclick="downloadCV()">
@@ -970,7 +1141,8 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>SQL Database Chat Assistant</h3>
-                    <p>An intelligent conversational AI agent powered by GPT-4 that interacts with SQL databases through natural language queries, supporting both SQLite and MySQL.</p>
+                    <p>An intelligent conversational AI agent powered by GPT-4 that interacts with SQL databases through
+                        natural language queries, supporting both SQLite and MySQL.</p>
                     <div class="project-tech">
                         <span class="tech-tag">OpenAI GPT-4</span>
                         <span class="tech-tag">Streamlit</span>
@@ -978,7 +1150,8 @@
                         <span class="tech-tag">Python</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://sql-database-chat-assistant-6thdvjxf9dypct3rdxltcy.streamlit.app/" target="_blank" class="project-link">
+                        <a href="https://sql-database-chat-assistant-6thdvjxf9dypct3rdxltcy.streamlit.app/"
+                            target="_blank" class="project-link">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
                     </div>
@@ -989,7 +1162,8 @@
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>Conversational RAG with PDF</h3>
-                    <p>Advanced RAG system enabling conversational interactions with PDF documents, featuring chat history and context-aware responses using LangChain and Groq.</p>
+                    <p>Advanced RAG system enabling conversational interactions with PDF documents, featuring chat
+                        history and context-aware responses using LangChain and Groq.</p>
                     <div class="project-tech">
                         <span class="tech-tag">LangChain</span>
                         <span class="tech-tag">RAG</span>
@@ -997,7 +1171,8 @@
                         <span class="tech-tag">Streamlit</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/SyedSameerRizvi/RAG-PDF-Q-A-Chatbot.git" target="_blank" class="project-link">
+                        <a href="https://github.com/SyedSameerRizvi/RAG-PDF-Q-A-Chatbot.git" target="_blank"
+                            class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
@@ -1008,7 +1183,8 @@
                         <i class="fas fa-cloud-rain"></i>
                     </div>
                     <h3>USA Rain Prediction System</h3>
-                    <p>Machine learning model predicting rainfall in major US cities using advanced weather data analysis and predictive algorithms for 2024-2025.</p>
+                    <p>Machine learning model predicting rainfall in major US cities using advanced weather data
+                        analysis and predictive algorithms for 2024-2025.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Scikit-learn</span>
                         <span class="tech-tag">Pandas</span>
@@ -1027,7 +1203,8 @@
                         <i class="fas fa-video"></i>
                     </div>
                     <h3>AI Content Summarizer</h3>
-                    <p>Intelligent summarization agent that processes YouTube videos and websites using Groq API and Gemma-7b-It model for concise content extraction.</p>
+                    <p>Intelligent summarization agent that processes YouTube videos and websites using Groq API and
+                        Gemma-7b-It model for concise content extraction.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Groq API</span>
                         <span class="tech-tag">Gemma-7b</span>
@@ -1046,7 +1223,8 @@
                         <i class="fas fa-user-times"></i>
                     </div>
                     <h3>Customer Churn Prediction</h3>
-                    <p>Deep learning model using Artificial Neural Networks to predict customer churn with high accuracy, featuring an interactive web interface.</p>
+                    <p>Deep learning model using Artificial Neural Networks to predict customer churn with high
+                        accuracy, featuring an interactive web interface.</p>
                     <div class="project-tech">
                         <span class="tech-tag">TensorFlow</span>
                         <span class="tech-tag">Keras</span>
@@ -1054,7 +1232,8 @@
                         <span class="tech-tag">Streamlit</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/SyedSameerRizvi/ANN-Churn-Classification.git" target="_blank" class="project-link">
+                        <a href="https://github.com/SyedSameerRizvi/ANN-Churn-Classification.git" target="_blank"
+                            class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
@@ -1065,7 +1244,8 @@
                         <i class="fas fa-brain"></i>
                     </div>
                     <h3>MBTI Personality Prediction</h3>
-                    <p>AI system predicting MBTI personality types from demographics and interests using a comprehensive dataset of 100,000 samples with advanced ML algorithms.</p>
+                    <p>AI system predicting MBTI personality types from demographics and interests using a comprehensive
+                        dataset of 100,000 samples with advanced ML algorithms.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Machine Learning</span>
                         <span class="tech-tag">Feature Engineering</span>
@@ -1073,7 +1253,8 @@
                         <span class="tech-tag">Python</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/SyedSameerRizvi/People-Personality-Prediction.git" target="_blank" class="project-link">
+                        <a href="https://github.com/SyedSameerRizvi/People-Personality-Prediction.git" target="_blank"
+                            class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
@@ -1135,66 +1316,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-grid">
-                <div class="contact-info fade-in">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong><br>
-                            ashrafsameer682@gmail.com
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>Phone</strong><br>
-                            +923375912881
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Location</strong><br>
-                            Karachi, Pakistan
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <div>
-                            <strong>University</strong><br>
-                            DHA Suffa University
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form fade-in">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Contact Section Removed -->
 
     <script>
         // Smooth scrolling for navigation links
@@ -1251,12 +1373,8 @@
         // Create particles periodically
         setInterval(createParticle, 2000);
 
-        // Form submission
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
+        // Form submission removed
+
 
         // CV Download function
         function downloadCV() {
@@ -1264,21 +1382,21 @@
             const link = document.createElement('a');
             link.href = 'src/Syed-Sameer-Resume.pdf'; // Replace with actual CV file path
             link.download = 'Syed_Sameer_Rizvi_CV.pdf';
-            
+
             // For demo purposes, show an alert
             alert('CV download initiated!');
             
              Uncomment the lines below when you have an actual CV file
-             document.body.appendChild(link);
-             link.click();
-             document.body.removeChild(link);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // Active navigation highlighting
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-links a');
-            
+
             let currentSection = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
@@ -1297,164 +1415,18 @@
         });
 
 
-       function initContactForm() {
-            const form = document.getElementById('contactForm');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Email validation regex
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            // Clear messages
-            function clearMessages() {
-                successMessage.classList.remove('show');
-                errorMessage.classList.remove('show');
-            }
-            
-            // Show success message
-            function showSuccess() {
-                clearMessages();
-                successMessage.classList.add('show');
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }
-            
-            // Show error message
-            function showError() {
-                clearMessages();
-                errorMessage.classList.add('show');
-                setTimeout(() => {
-                    errorMessage.classList.remove('show');
-                }, 5000);
-            }
-            
-            // Validate individual field
-            function validateField(field) {
-                const formGroup = field.parentElement;
-                const errorText = formGroup.querySelector('.error-text');
-                let isValid = true;
-                let message = '';
-                
-                // Remove existing error state
-                formGroup.classList.remove('error');
-                
-                // Check if field is empty
-                if (!field.value.trim()) {
-                    isValid = false;
-                    message = `${field.name.charAt(0).toUpperCase() + field.name.slice(1)} is required`;
-                } else {
-                    // Specific validations
-                    switch (field.type) {
-                        case 'email':
-                            if (!emailRegex.test(field.value)) {
-                                isValid = false;
-                                message = 'Please enter a valid email address';
-                            }
-                            break;
-                        case 'text':
-                            if (field.name === 'name' && field.value.trim().length < 2) {
-                                isValid = false;
-                                message = 'Name must be at least 2 characters long';
-                            }
-                            if (field.name === 'subject' && field.value.trim().length < 3) {
-                                isValid = false;
-                                message = 'Subject must be at least 3 characters long';
-                            }
-                            break;
-                        default:
-                            if (field.tagName.toLowerCase() === 'textarea' && field.value.trim().length < 10) {
-                                isValid = false;
-                                message = 'Message must be at least 10 characters long';
-                            }
-                    }
-                }
-                
-                if (!isValid) {
-                    formGroup.classList.add('error');
-                    errorText.textContent = message;
-                }
-                
-                return isValid;
-            }
-            
-            // Validate entire form
-            function validateForm() {
-                const fields = form.querySelectorAll('input, textarea');
-                let isFormValid = true;
-                
-                fields.forEach(field => {
-                    if (!validateField(field)) {
-                        isFormValid = false;
-                    }
-                });
-                
-                return isFormValid;
-            }
-            
-            // Real-time validation
-            form.addEventListener('input', function(e) {
-                if (e.target.matches('input, textarea')) {
-                    validateField(e.target);
-                }
-            });
-            
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (!validateForm()) {
-                    showError();
-                    return;
-                }
-                
-                // Show loading state
-                const submitBtn = form.querySelector('.btn');
-                const btnText = submitBtn.querySelector('.btn-text');
-                const originalText = btnText.textContent;
-                
-                submitBtn.disabled = true;
-                btnText.innerHTML = '<span class="loading"></span>Sending...';
-                
-                // Simulate form submission (replace with actual submission logic)
-                setTimeout(() => {
-                    // Get form data
-                    const formData = new FormData(form);
-                    const data = Object.fromEntries(formData);
-                    
-                    // Here you would typically send the data to your server
-                    console.log('Form submitted with data:', data);
-                    
-                    // Show success and reset form
-                    showSuccess();
-                    form.reset();
-                    
-                    // Reset button
-                    submitBtn.disabled = false;
-                    btnText.textContent = originalText;
-                    
-                    // Clear any remaining error states
-                    form.querySelectorAll('.form-group').forEach(group => {
-                        group.classList.remove('error');
-                    });
-                    
-                }, 2000); // Simulate network delay
-            });
-        }
-        
-        // Initialize the form when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initContactForm);
-}    
+
     </script>
 
     <style>
         .nav-links a.active {
             color: var(--accent-color);
         }
-        
+
         .nav-links a.active::after {
             width: 100%;
         }
     </style>
 </body>
+
 </html>
