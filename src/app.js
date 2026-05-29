@@ -143,8 +143,8 @@ document.getElementById('contact-form').addEventListener('submit', e => {
 // === CV DOWNLOAD ===
 function downloadCV() {
     const link = document.createElement('a');
-    link.href = 'src/Syed-Sameer-Resume.pdf';
-    link.download = 'Syed_Sameer_Rizvi_CV.pdf';
+    link.href = 'src/SyedSameer_Resume.pdf';
+    link.download = 'SyedSameer_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
